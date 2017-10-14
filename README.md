@@ -4,3 +4,5 @@ Python Script for sentimental analysis of tweets.
 More enhancements coming soon!
 
 Based on Python For Data Science by Siraj Raval.
+
+## Developed By Manan Manwani
