@@ -5,4 +5,4 @@ More enhancements coming soon!
 
 Based on Python For Data Science by Siraj Raval.
 
-## Developed By Manan Manwani
+##### Developed By Manan Manwani
