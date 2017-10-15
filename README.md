@@ -5,6 +5,7 @@ Python Script for sentimental analysis of tweets.
 * Python
 * Tweepy
 * TextBlob
+* Pandas
 
 ## Dependencies:-
 1. Install Tweepy `pip install tweepy`
