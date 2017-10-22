@@ -16,20 +16,27 @@ auth.set_access_token(access_token_key,access_token_secret)
 api=tweepy.API(auth)
 topicname='Football'
 pubic_tweets=api.search(topicname)
+unwanted_words=['@','RT',':','https','http']
+symbols=['@','#']
 data=[]
 for tweet in pubic_tweets:
     text=tweet.text
+    textWords=text.split()
+    #print (textWords)
+    cleanedTweet=' '.join(re.sub("(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)|(RT)", " ", text).split())
+    print (cleanedTweet)
     #print (TextBlob(tweet.text).tags)
     analysis= TextBlob(tweet.text)
-    #print (analysis.sentiment)
+    print (analysis.sentiment)
     polarity = 'Positive'
     if(analysis.sentiment.polarity < 0):
         polarity = 'Negative'
+    if(0<=analysis.sentiment.polarity <=0.5):
+        polarity = 'Neutral'
     #print (polarity)
     dic={}
     dic['Sentiment']=polarity
-    dic['Tweet']=text
+    dic['Tweet']=cleanedTweet
     data.append(dic)
 df=pd.DataFrame(data)
-print (df)
-df.to_csv('output.csv')
+df.to_csv('analysis.csv')
