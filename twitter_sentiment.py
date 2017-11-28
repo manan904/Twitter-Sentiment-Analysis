@@ -25,13 +25,13 @@ for tweet in pubic_tweets:
     #print (textWords)
     cleanedTweet=' '.join(re.sub("(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)|(RT)", " ", text).split())
     print (cleanedTweet)
-    #print (TextBlob(tweet.text).tags)
-    analysis= TextBlob(tweet.text)
+    #print (TextBlob(cleanedTweet).tags)
+    analysis= TextBlob(cleanedTweet)
     print (analysis.sentiment)
     polarity = 'Positive'
     if(analysis.sentiment.polarity < 0):
         polarity = 'Negative'
-    if(0<=analysis.sentiment.polarity <=0.5):
+    if(0<=analysis.sentiment.polarity <=0.2):
         polarity = 'Neutral'
     #print (polarity)
     dic={}
@@ -39,4 +39,4 @@ for tweet in pubic_tweets:
     dic['Tweet']=cleanedTweet
     data.append(dic)
 df=pd.DataFrame(data)
-df.to_csv('analysis.csv')
+df.to_csv('analysis1.csv')
