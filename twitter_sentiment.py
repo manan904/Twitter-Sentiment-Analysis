@@ -1,14 +1,15 @@
 import tweepy
 from textblob import TextBlob
 import csv
+import re
 import sys
-import pandas
+import pandas as pd
 
 consumer_key='YOUR CONSUMER KEY'
 consumer_secret='YOUR CONSUMER SECRET KEY'
 
-access_token_key='YOUR ACCESS TOKEN KEY'
-access_token_secret='YOUR SECRET ACCESS TOKEN KEY'
+access_token_key='YOUR ACCESS TOKEN'
+access_token_secret='YOUR SECRET ACCESS TOKEN'
 
 auth=tweepy.OAuthHandler(consumer_key,consumer_secret)
 auth.set_access_token(access_token_key,access_token_secret)
